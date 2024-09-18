@@ -1,3 +1,39 @@
-pip install opencv-python
-pip install deepface
-pip install tf-keras
+1. For the first choice,
+    this is the better option:
+
+    pip install opencv-python
+    pip install deepface
+    pip install tf-keras
+
+    the above is also in the readme guide file as 
+    ```bash
+        pip install Flask opencv-python deepface tf-keras
+        ```
+
+
+
+2. For the second following choice,
+
+    if need be, as the last option install the following(if no need, then do not install the second one here below):
+
+    ```bash
+        pip install Flask opencv-python-headless opencv-python deepface tensorflow tf-keras
+        ```
+
+    - this second choice is as a result of minor error that may occur when running the code, if the first choice does not work, then try the second choice.
+    
+    
+    
+    
+    
+3. NOTE:
+ I highly recommend the first choice, (which is what works best and is at the read me file also) but if it does not work, then try the second choice.
+
+
+4. Ensure :
+
+    Flask==3.0.3
+    opencv-python==4.10.0.84
+    deepface==0.0.93
+    tensorflow==2.17.0
+    tf-keras==2.17.0
