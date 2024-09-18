@@ -167,7 +167,9 @@ if __name__ == '__main__':
 ```
 
 ## Routes
-   /video_feed: This route provides a live video stream captured from your webcam. The video will have rectangles drawn around detected faces and emotion labels displayed on top of each face.
+1. / :  Takes you to the default welcome page. This route returns a simple text message "Welcome to the Emotion Backend API" to confirm that the server is running and provides an introduction to the application.
+
+2.  /video_feed: This route provides a live video stream captured from your webcam. The video will have rectangles drawn around detected faces and emotion labels displayed on top of each face.
 
 
 ## Troubleshooting
