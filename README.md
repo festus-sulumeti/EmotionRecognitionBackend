@@ -60,6 +60,7 @@ Follow these steps to set up the project locally:
     ```bash
     pip install Flask opencv-python deepface tf-keras
     ```
+    - Remember to also open and read the requirement.txt file
 
 4. **Download Haar Cascade Classifier**:
     Ensure OpenCV's `haarcascade_frontalface_default.xml` is available by default in your environment. If not, download it from [OpenCV GitHub](https://github.com/opencv/opencv/tree/master/data/haarcascades) and place it in your project directory.
