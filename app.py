@@ -1,8 +1,12 @@
 # app.py
-from flask import Flask, Response
+from flask import Flask, Response, jsonify
 from video_processing import generate_frames
 
 app = Flask(__name__)
+
+@app.route('/')
+def welcome():
+    return "Welcome to the Emotion Backend API Karibu Sana feel at home"
 
 @app.route('/video_feed')
 def video_feed():
