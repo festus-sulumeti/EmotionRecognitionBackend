@@ -173,17 +173,11 @@ if __name__ == '__main__':
 
 
 ## Troubleshooting
-1. DeepFace Import Error:
+1. DeepFace Import Error: If you encounter ModuleNotFoundError: No module named 'deepface', ensure you have installed DeepFace correctly using pip install deepface.
 
-If you encounter ModuleNotFoundError: No module named 'deepface', ensure you have installed DeepFace correctly using pip install deepface.
+2. TensorFlow Errors: If you face TensorFlow-related issues, ensure you are using a compatible version. Consider installing tf-keras or downgrading TensorFlow if needed.
 
-2. TensorFlow Errors:
-
-If you face TensorFlow-related issues, ensure you are using a compatible version. Consider installing tf-keras or downgrading TensorFlow if needed.
-
-3. Video Feed Not Displaying:
-
-Ensure your webcam is functioning and accessible by OpenCV.
+3. Video Feed Not Displaying: Ensure your webcam is functioning and accessible by OpenCV.
 Check that the URL http://127.0.0.1:5000/video_feed is correct.
 
 ## Contributing
