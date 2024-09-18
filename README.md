@@ -58,7 +58,7 @@ Follow these steps to set up the project locally:
 
 3. **Install Dependencies**:
     ```bash
-    pip install Flask opencv-python-headless opencv-python deepface tensorflow tf-keras
+    pip install Flask opencv-python deepface tf-keras
     ```
 
 4. **Download Haar Cascade Classifier**:
