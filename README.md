@@ -102,14 +102,12 @@ Once the dependencies are installed, follow these steps to run the project:
 
 ### Example Code
 
-Here’s the core logic for face detection and emotion analysis in `app.py`:
+Here’s the core logic for face detection and emotion analysis in `video_processing.py` and `app.py`:
 
 ```python
-from flask import Flask, Response
+# video_processing.py
 import cv2
 from deepface import DeepFace
-
-app = Flask(__name__)
 
 # Load face cascade classifier
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
@@ -147,6 +145,17 @@ def generate_frames():
                b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
     cap.release()
+```
+```python
+# app.py
+from flask import Flask, Response, jsonify
+from video_processing import generate_frames
+
+app = Flask(__name__)
+
+@app.route('/')
+def welcome():
+    return "Welcome to the Emotion Backend API Karibu Sana feel at home"
 
 @app.route('/video_feed')
 def video_feed():
