@@ -252,7 +252,7 @@ alembic upgrade head
 alembic revision --autogenerate -m "Describe your changes"
 
 ```
-7. Apply the new migration:
+7. Apply the new migration(also optional as it communicates about step 6):
 ```bash
 
 alembic upgrade head
