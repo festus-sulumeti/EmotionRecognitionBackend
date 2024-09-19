@@ -3,18 +3,15 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_cors import CORS
 from models import db, User
-import bcrypt
 import os
 from dotenv import load_dotenv
 
 app = Flask(__name__)
 load_dotenv()
 
-
 # Configure the database URI
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
 
 # Initialize extensions
 CORS(app)
@@ -42,8 +39,8 @@ def signup():
         return jsonify({"error": "User already exists"}), 400
 
     # Hash the password
-    hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
-    new_user = User(email=email, password=hashed_password.decode('utf-8'))
+    hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+    new_user = User(email=email, password=hashed_password)
 
     try:
         db.session.add(new_user)
@@ -60,7 +57,7 @@ def signin():
     password = data.get('password')
 
     user = User.query.filter_by(email=email).first()
-    if user and bcrypt.checkpw(password.encode('utf-8'), user.password.encode('utf-8')):
+    if user and bcrypt.check_password_hash(user.password, password):
         return jsonify({"message": "Sign in successful"}), 200
     else:
         return jsonify({"error": "Invalid email or password"}), 401
