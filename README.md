@@ -242,7 +242,7 @@ alembic revision --autogenerate -m "Initial migration"
 alembic upgrade head
 ```
 
-6. Handling Future Migrations: For subsequent schema changes(optional phase you can skip):
+6. Handling Future Migrations: For subsequent schema changes (optional phase you can skip):
 
  - Make changes to your models.
  - Generate a new migration script:
@@ -252,7 +252,7 @@ alembic upgrade head
 alembic revision --autogenerate -m "Describe your changes"
 
 ```
-7. Apply the new migration(also optional as it communicates about step 6):
+7. Apply the new migration (also optional as it communicates about step 6):
 ```bash
 
 alembic upgrade head
