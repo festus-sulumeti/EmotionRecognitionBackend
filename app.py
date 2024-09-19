@@ -50,6 +50,27 @@ def signup():
         db.session.rollback()
         return jsonify({"error": "An error occurred. Please try again."}), 500
 
+    data = request.get_json()
+    email = data.get('email')
+    password = data.get('password')
+    if not email or not password:
+        return jsonify({"error": "Email and password are required"}), 400
+
+    if User.query.filter_by(email=email).first():
+        return jsonify({"error": "User already exists"}), 400
+
+    # Hash the password
+    hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+    new_user = User(email=email, password=hashed_password)
+
+    try:
+        db.session.add(new_user)
+        db.session.commit()
+        return jsonify({"message": "User created successfully"}), 201
+    except IntegrityError:
+        db.session.rollback()
+        return jsonify({"error": "An error occurred. Please try again."}), 500
+
 @app.route('/signin', methods=['POST'])
 def signin():
     data = request.get_json()
