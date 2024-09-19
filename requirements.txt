@@ -6,7 +6,7 @@
     pip install tf-keras
 
     the above is also in the readme guide file as 
-    ```bash
+    ```
         pip install Flask opencv-python deepface tf-keras
         ```
 
@@ -16,7 +16,7 @@
 
     if need be, as the last option install the following(if no need, then do not install the second one here below):
 
-    ```bash
+    ```
         pip install Flask opencv-python-headless opencv-python deepface tensorflow tf-keras
         ```
 
@@ -34,8 +34,8 @@
 4. Added installations
    pip install alembic
     - once installed, Navigate to your project directory and initialize Alembic. This will create a new migrations folder and a configuration file:
-    
-     ```python
+
+     ```
      alembic init migrations
      ```
 
