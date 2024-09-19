@@ -11,6 +11,8 @@ This project is a Flask backend that captures real-time video from a webcam, det
 - [Usage](#usage)
 - [Code Overview](#code-overview)
 - [Routes](#routes)
+- [Database Migrations](#database-migrations)
+- [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -60,7 +62,7 @@ Follow these steps to set up the project locally:
     ```bash
     pip install Flask opencv-python deepface tf-keras
     ```
-    - Remember to also open and read the requirement.txt file
+    - Remember to also open and read the `requirements.txt` file.
 
 4. **Download Haar Cascade Classifier**:
     Ensure OpenCV's `haarcascade_frontalface_default.xml` is available by default in your environment. If not, download it from [OpenCV GitHub](https://github.com/opencv/opencv/tree/master/data/haarcascades) and place it in your project directory.
@@ -77,7 +79,6 @@ Once the dependencies are installed, follow these steps to run the project:
     The application will start running on `http://127.0.0.1:5000`.
 
 2. **Access the Video Feed**:
-
     Open a browser and navigate to `http://127.0.0.1:5000/video_feed` to view the live video feed with face detection and emotion recognition.
 
 ## Code Overview
@@ -166,6 +167,96 @@ if __name__ == '__main__':
     app.run(debug=True)
 ```
 
+## Database Migrations
+To manage your database schema with Alembic, follow these steps:
+
+1. Install Alembic:
+   ```bash
+   pip install alembic
+   ```
+2. Initialize Alembic: Navigate to your project directory and initialize Alembic:
+
+```bash
+
+alembic init migrations
+
+```
+3. Configure Alembic: Open the alembic.ini file and set the sqlalchemy.url to your PostgreSQL URI:
+
+```bash
+
+# alembic.ini
+[alembic]
+# other settings...
+
+sqlalchemy.url = postgresql://your_username:your_password@localhost/emotion_detection
+
+```
+
+Next, open migrations/env.py and make sure it includes your Flask app and SQLAlchemy db object:
+```bash
+   # migrations/env.py
+from __future__ import with_statement
+
+import logging
+from logging.config import fileConfig
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+from alembic import context
+from flask import current_app
+from flask_sqlalchemy import SQLAlchemy
+
+# Import your models here
+from app import db
+
+# Set up logging
+if context.config.config_file_name is not None:
+    fileConfig(context.config.config_file_name)
+
+target_metadata = db.metadata
+
+def run_migrations_online():
+    connectable = create_engine(context.config.get_main_option("sqlalchemy.url"))
+
+    with connectable.connect() as connection:
+        context.configure(
+            connection=connection,
+            target_metadata=target_metadata
+        )
+
+        with context.begin_transaction():
+            context.run_migrations()
+```
+
+4. Create a Migration Script:
+
+```bash
+
+alembic revision --autogenerate -m "Initial migration"
+```
+5. Apply the Migration:
+
+```bash
+
+alembic upgrade head
+```
+
+6. Handling Future Migrations: For subsequent schema changes:
+
+ - Make changes to your models.
+ - Generate a new migration script:
+
+```bash
+
+alembic revision --autogenerate -m "Describe your changes"
+
+```
+7. Apply the new migration:
+```bash
+
+alembic upgrade head
+```
 ## Routes
 1.   / :  Takes you to the default welcome page. This route returns a simple text message "Welcome to the Emotion Backend API" to confirm that the server is running and provides an introduction to the application.
 
