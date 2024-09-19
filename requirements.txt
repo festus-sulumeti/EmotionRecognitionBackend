@@ -30,7 +30,17 @@
  I highly recommend the first choice, (which is what works best and is at the read me file also) but if it does not work, then try the second choice.
 
 
-4. As per the making of the project, the following were ensured:
+
+4. Added installations
+   pip install alembic
+    - once installed, Navigate to your project directory and initialize Alembic. This will create a new migrations folder and a configuration file:
+    
+     ```python
+     alembic init migrations
+     ```
+
+
+5. As per the making of the project, the following were ensured:
 
     python==3.12.6
     Flask==3.0.3
@@ -38,3 +48,4 @@
     deepface==0.0.93
     tensorflow==2.17.0
     tf-keras==2.17.0
+    alembic==1.13.2
