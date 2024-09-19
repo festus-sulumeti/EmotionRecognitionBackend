@@ -60,7 +60,7 @@ Follow these steps to set up the project locally:
 
 3. **Install Dependencies**:
     ```bash
-    pip install Flask opencv-python deepface tf-keras psycopg2-binary sqlalchemy flask_sqlalchemy flask-cors
+    pip install Flask opencv-python deepface tf-keras psycopg2-binary sqlalchemy flask_sqlalchemy flask-cors install bcrypt
 
     ```
     - Remember to also open and read the `requirements.txt` file.
