@@ -282,5 +282,5 @@ Contributions are welcome! If you would like to improve this project, please fol
 
 Feel free to report any issues or suggest improvements!
 
-License
+## License
 This project is licensed under the MIT License. See the LICENSE file for more information.
