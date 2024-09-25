@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_cors import CORS
 from models import db, User
+from video_processing import generate_frames
 import os
 from dotenv import load_dotenv
 
