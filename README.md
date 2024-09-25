@@ -48,7 +48,7 @@ Follow these steps to set up the project locally:
 
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/your-username/emotion-detection-backend.git
+    git clone https://github.com/your-username/HisiaTambuliziBackend.git
     cd emotion-detection-backend
     ```
 
