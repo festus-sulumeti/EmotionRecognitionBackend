@@ -63,7 +63,7 @@ Follow these steps to set up the project locally:
     pip install Flask opencv-python deepface tf-keras psycopg2-binary sqlalchemy flask_sqlalchemy flask-cors install bcrypt
 
     ```
-    - Remember to also open and read the `requirements.txt` file.
+    - Remember to also open and read the `requirements.txt` file. to see the versions
 
 4. **Download Haar Cascade Classifier**:
     Ensure OpenCV's `haarcascade_frontalface_default.xml` is available by default in your environment. If not, download it from [OpenCV GitHub](https://github.com/opencv/opencv/tree/master/data/haarcascades) and place it in your project directory.
