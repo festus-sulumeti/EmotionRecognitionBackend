@@ -1,4 +1,4 @@
-# Emotion Detection Flask Backend
+# Hisia Tambulizi Flask Backend
 
 This project is a Flask backend that captures real-time video from a webcam, detects faces, and analyzes emotions using the `DeepFace` library. The detected emotions are displayed in real-time, annotated over the video stream.
 
