@@ -2,6 +2,12 @@
 
 This project is a Flask backend that captures real-time video from a webcam, detects faces, and analyzes emotions using the `DeepFace` library. The detected emotions are displayed in real-time, annotated over the video stream.
 
+## NOTE:
+  During the live production when the application is hosted in cloud based system, the application has been rejected the ability to use camera.
+  Am still working towards resolving the issue but in the meantime running the work locally and it will access your camera
+
+
+
 ## Table of Contents
 
 - [Features](#features)
