@@ -22,10 +22,6 @@ bcrypt = Bcrypt(app)
 def welcome():
     return "Welcome to the Emotion Backend API. Karibu Sana, feel at home."
 
-@app.route('/video_feed')
-def video_feed():
-    # Your video processing function
-    return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 @app.route('/signup', methods=['POST'])
 def signup():
@@ -61,6 +57,12 @@ def signin():
         return jsonify({"message": "Sign in successful"}), 200
     else:
         return jsonify({"error": "Invalid email or password"}), 401
+    
+@app.route('/video_feed')
+def video_feed():
+    # Your video processing function
+    return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
